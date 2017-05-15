@@ -1,0 +1,23 @@
+<article class="post">
+ 	<section class="post-head ">
+         <div class="col-lg-12">
+		   <%=image_tag @gallery.image.url(:thumb), class: "img-thumbnail thumb" if @gallery.image?%><br>
+		   <%= @gallery.title %>
+         </div>		   
+		  
+		 	
+			
+		<small>
+		    <time><%= @gallery.updated_at.to_date.strftime("%d, %B, %Y") %></time><br>
+			
+		    <%=link_to 'Edit', edit_gallery_path(@gallery)%>
+			|
+		    <%=link_to 'Delete', gallery_path(@gallery), method: :delete, data:{confirm: 'A You sure?'} %>
+			|
+		    <%=link_to  'Back', :back, class: "btn btn-secondary"%>
+		</small>
+	</section><br>
+	
+ 
+</article>		
+				 

@@ -1,0 +1,29 @@
+
+<% @products.each do |product| %>	
+ <article class="post">
+   	<section class="post-head">	
+             <br>	
+	         <h3><%= link_to product.title, product_path(product) %></h3>
+		
+	</section>
+	
+	<section class="post-text clearfix">  
+		 <div class="row">
+		  <div class="col-lg-6">
+		   <%=image_tag product.image.url(:thumb), class: "img-thumbnail thumb" if product.image?%>
+		  </div>
+		 <div class="col-lg-6">
+		   <%=image_tag product.image1.url(:thumb), class: "img-thumbnail thumb" if product.image1?%>
+		 </div> 
+        </div>
+            <%= product.text %>         			
+    </section> 
+	
+ </article>		
+ <%end%>
+<%=link_to 'Add product', new_product_path%>
+
+	
+	
+
+

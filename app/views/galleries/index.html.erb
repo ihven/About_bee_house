@@ -1,0 +1,33 @@
+<%@val = 'Gallery' %>
+<article class="post">
+	  <section class="post-head ">
+	   <div class="row"> 
+		<% @galleries.each do |gallery| %>
+		    <% if gallery.id != 5 %>
+			<div class="col-lg-4">
+			    <%=image_tag gallery.image.url(:thumb), class: "img-thumbnail thumb" if gallery.image?%><br>
+			
+				<% if  user_signed_in? %>
+                   <% if  current_user.admin? %>
+                      <%=link_to gallery.title, gallery_path(gallery) %>
+				   <% else %>
+                   	<%=gallery.title%>			
+                <% end %>					
+			   <% else %>
+				   <%=gallery.title%>
+			  <% end %>		 
+             </div>
+           <%end%>			 
+		<%end%>
+        </div> 		
+       </section>	
+	</article><br>
+<% if  user_signed_in? %>
+ <% if  current_user.admin? %>
+  <div class="actions">  
+	<%=link_to 'Add picture', new_gallery_path, class:"btn btn-primary"%>
+  </div>	
+ <%end%>
+<%end%>	
+	
+	

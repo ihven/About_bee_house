@@ -1,0 +1,28 @@
+ <%@val = 'Blog' %>
+	   <% @articles.each do |article| %>
+		 <article class="post">
+	         <section class="post-additional col-lg-12">
+	            <%=article.text%><br>
+				<%=link_to 'Discusion...', article_path(article) %>
+			      <section class="home"> 
+				   <small>
+					author:
+					<i><%=article.author %></i>
+					|
+					<time><%= article.updated_at.to_date %></time>
+					
+			       </small>
+                  </section> 
+              </section>     
+	       </article>  				   
+		<%end%>	
+	<nav class="navbar main">
+	  <section class="home btn btn-primary-outline pull-xs">
+	     <strong><%=link_to 'Add post', new_article_path %></strong>
+	  </section>
+    </nav>		
+
+    
+		
+
+	

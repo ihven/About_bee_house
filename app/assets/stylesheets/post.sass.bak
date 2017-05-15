@@ -1,0 +1,60 @@
+article.post
+ padding-top: 1em
+ padding-bottom: 1em
+ padding-left: 1em
+ padding-right: 1em
+ border-top: 1px solid darkblue
+ border-left: 1px solid darkblue
+ border-right: 1px solid darkblue
+ border-bottom: 1px solid darkblue
+ background: #fdd 
+ 
+ section.post-head
+  color: darkblue
+  text-align: center
+  font-size: 1.1em
+  
+ section.post-text
+  padding-top: 1em
+  padding-bottom: 1em
+  padding-left: 1em
+  padding-right: 1em
+  color: black
+  font-size: 1.1em
+  text-align: justify
+  
+ section.post-additional
+  padding-top: 1em
+  padding-bottom: 1em
+  padding-left: 1em
+  padding-right: 1em
+  color: black
+  font-size: 1em
+  text-align: justify
+  
+ .video
+ float: left
+ display: center
+ margin: auto
+ overflow: scroll
+  
+ .img-show
+ width: 100%
+ hight: 100%
+ float: center
+ display: block  
+  
+ .thumb
+ float: center
+ display: block
+ width: 100%
+ hight: 100%
+ padding-top: 1em
+ padding-bottom: 1em
+ padding-left: 1em
+ padding-right: 1em
+
+
+  
+ 
+  

@@ -1,0 +1,17 @@
+ <section class="post-additional">	
+	  <i><strong> Commenter: </strong></i>
+	  <%= comment.commenter %><br>
+	  
+	  <%= comment.body %><br>
+	  
+    <% if  user_signed_in? %>
+     <% if  current_user.admin? %>
+	 <%= comment.email %><br>
+	  <%= link_to 'Delete comment', [comment.article, comment],
+				   method: :delete,
+				   data: { confirm: 'Are you sure?' }, class:"btn btn-danger" %>
+	  <%end%>
+    <%end%>	  
+  </section>				   
+  
+   				   

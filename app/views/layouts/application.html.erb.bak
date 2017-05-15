@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>BeeHive</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+     <nav class="navbar main">
+          
+				<ul>
+				       
+					   
+					   <h3>Ukrainian beehive Bjilnyk (UBB)</h3>
+                       <h3><%= @val %></h3>
+						 <section class="home">					 
+						     <% if user_signed_in? %>
+                                    <%= current_user.email %>
+									|							 
+								   <strong><%= link_to "Exit", destroy_user_session_path, method: :delete %></strong>
+							       									   
+							<% else %>
+                                   
+								   <strong><%= link_to "Log in", new_user_session_path %></strong>
+								   |
+								   <strong><%= link_to "Sign up", new_user_registration_path %></strong>
+                                  							   
+								  
+                                   
+						   <% end %>
+						      |
+   							 <strong><%=link_to "Home", root_path %></strong>
+							  
+                        </section>  					   
+	
+				 </ul>              
+         	  
+						      <%= yield %>
+							  
+	            <div class = "container">
+				   <% Gallery.all  %>
+			        <% page = Gallery.find 5 %>
+			
+			        <%= image_tag page.image.url(:large), class:"img-show", style:"min-width: 100%; min-hight: 100%" %>
+				</div>    
+ 		    </nav>
+		</body>
+			
+</html>

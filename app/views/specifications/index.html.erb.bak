@@ -1,0 +1,43 @@
+<%@val = 'Specifications'%>
+
+ <% @specifications.each do |specification| %>
+  <article class="post"> 
+   	<section class="post-head">	
+             <br>
+			 
+			 <% if  user_signed_in? %>
+                <% if  current_user.admin? %>
+                   <h5><%= link_to specification.title, specification_path(specification) %></h5>
+				<% else %>
+                   	<h5><%= specification.title %></h5>			
+                <% end %>
+					
+			  <% else %>
+				     <h5><%= specification.title %></h5>
+			 <% end %>		 
+		
+	</section>
+	
+	
+		 
+		<div class="container">  
+		  
+		   <%=image_tag specification.image.url(:large), class:"img-show" if specification.image?%><br>
+		   
+		  
+		</end>
+        
+            <%= specification.text %>         			
+    
+   </article><br> 	
+  <%end%>
+
+
+<% if  user_signed_in? %>
+ <% if  current_user.admin? %>
+   <div class="actions">  
+	<%=link_to 'Add specification', new_specification_path, class:"btn btn-primary"%>
+	</div>
+ <%end%>
+<%end%>	
+ 

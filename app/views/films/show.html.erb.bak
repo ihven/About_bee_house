@@ -1,0 +1,29 @@
+<%@val = 'Video' %>
+<article class="post">
+	<section class="post-head">	
+			<br>
+			<strong><%= @film.title %></strong><br>
+		
+	</section><br>	
+	<section class="post-text clearfix">
+      <div class="col-lg-12 ">		   
+			   <%= video_tag @film.video_url.to_s, :controls =>true, style:"max-width: 100%" if @film.video? %>
+			   <%= @film.text %>
+	  </div>		  
+    </section">    			
+   <section class="post-head">	
+	<small>	
+        <% if  user_signed_in? %>
+          <% if  current_user.admin? %>	
+			<%=link_to 'Edit', edit_film_path(@film)%>
+			|
+			<%=link_to 'Delete', film_path(@film), method: :delete, data:{confirm: 'A You sure?'} %>
+			|
+		  <%end%>
+        <%end%>		  
+			<%=link_to  'back', :back, class: "btn btn-secondary"%>
+		</small>
+  </section>
+ 
+		
+</article>					 

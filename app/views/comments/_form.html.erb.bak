@@ -1,0 +1,14 @@
+<section class="form-group, text-align: right">	
+	<%= form_for([@article, @article.comments.build]) do |f| %> 
+	  <div class="form-group">
+		<%= f.label :commenter %>
+		<%= f.text_field :commenter, class: "form-control" %><br>
+		<%= f.label :text %><br>
+		<%= f.text_area :body, class: "form-control" %>
+	  </div>	
+		<div class="actions">
+			<%= f.submit 'Create comment', class: "btn btn-primary"%>
+		</div>
+	       	
+	<% end %>
+</section> 	

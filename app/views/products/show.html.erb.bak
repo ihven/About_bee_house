@@ -1,0 +1,49 @@
+<%@val = 'Main features'%>
+<article class="post">	
+ <section class="post-body">
+          <section class="post-head ">
+		      <%= @product.title %><br> 
+		  </section>
+	
+	<section class="post-text clearfix">  
+		 <div class="row">
+		  <div class="col-lg-6">
+		   <%=image_tag @product.image.url(:thumb), class: "img-thumbnail thumb" if @product.image?%>
+		  </div>
+		 <div class="col-lg-6">
+		   <%=image_tag @product.image1.url(:thumb), class: "img-thumbnail thumb" if @product.image1?%>
+		 </div> 
+        </div>
+            <%= @product.text %>
+         			
+    </section>	
+	
+	
+	<section class="post-text clearfix">  
+		 <div class="row">
+		  <div class="col-lg-4">
+		   <%=label_tag @product.url1 if @product.url1?%>
+		  </div>
+		 <div class="col-lg-4">
+		   <%=label_tag @product.url2 if @product.url2?%>
+		 </div> 
+		 <div class="col-lg-4">
+		   <%=label_tag @product.url3 if @product.url3?%>
+		  </div>
+        </div>
+     </section>	
+  
+   
+
+<section class="post-head ">	
+			
+		<small>
+		    <%=link_to 'Edit', edit_product_path(@product)%>
+			|
+		    <%=link_to 'Delete', product_path(@product), method: :delete, data:{confirm: 'A You sure?'} %>
+			|
+		    <%=link_to  'Back', :back, class: "btn btn-secondary"%></strong>
+		</small>
+	</section>   
+</article>		
+				 

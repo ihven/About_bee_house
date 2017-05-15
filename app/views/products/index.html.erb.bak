@@ -1,0 +1,46 @@
+<%@val = 'About UBB'%>
+<article class="post">
+ <% @products.each do |product| %>	
+   	<section class="post-head">	
+             <br>
+			 
+			 <% if  user_signed_in? %>
+                <% if  current_user.admin? %>
+                   <h3><%= link_to product.title, product_path(product) %></h3>
+				<% else %>
+                   	<h3><%= product.title %></h3>			
+                <% end %>
+					
+			  <% else %>
+				     <h3><%= product.title %></h3>
+			 <% end %>		 
+		
+	</section>
+	
+	<section class="post-text justify">  
+		 
+		<div class="row">  
+		  
+		   <%=image_tag product.image.url(:thumb), class: "img-thumbnail thumb", style:"max-width: 100%; max-hight: 100%; padding-left: 6em; padding-right:6em" if product.image?%>
+		  
+		 
+		   
+		   <%=image_tag product.image1.url(:thumb), class: "img-thumbnail thumb", style:"max-width: 100%; max-hight: 100%; padding-left: 6em; padding-right:6em" if product.image1?%>
+		  
+		</end>
+        
+            <%= product.text %>         			
+    </section> 	
+  <%end%>
+</article>
+
+<% if  user_signed_in? %>
+ <% if  current_user.admin? %>	 
+	<%=link_to 'Add product', new_product_path, class:"btn btn-primary"%>
+ <%end%>
+<%end%>	
+
+	
+	
+
+

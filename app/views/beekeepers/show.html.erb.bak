@@ -1,0 +1,67 @@
+<%@val = 'About us'%>
+
+  <article class="post">
+  
+		 <section class="post-head "> 
+			<%= @beekeeper.title %>
+		 </section>	
+				 
+			 
+		<section class="post-text clearfix"> 	 
+			 <div class="row ">		  
+		       <div class="col-lg-6">
+				   <%=image_tag @beekeeper.image.url(:thumb), class: "img-thumbnail thumb ", style: "height: 100%; width: 100%" if @beekeeper.image?%>
+			   </div>
+			   <div class="col-lg-6">
+				   <%=image_tag @beekeeper.image1.url(:thumb), class: "img-thumbnail thumb ",  style: "height: 100%; width: 100%"  if @beekeeper.image1?%>
+		       </div> 
+		      </div> 	 
+	     
+		      <%= @beekeeper.text %>
+		</section>	  
+		 
+         			
+    
+		 
+		 <div class="row">
+		  <div class="col-lg-4">
+		   <%str1 = "facebook" if @beekeeper.url1.include?("facebook")%>
+		   <%str1 = "linkedin" if @beekeeper.url1.include?("linkedin")%>
+		   <%str1 = "instagram" if @beekeeper.url1.include?("instagram")%>
+		   <%str1 = "twitter" if @beekeeper.url1.include?("twitter")%>
+		   <%=link_to str1, @beekeeper.url1, data: { confirm: "Are you sure?" } if @beekeeper.url1? %>
+		  </div>
+		 <div class="col-lg-4">
+		    
+		   <%str2 = "facebook" if @beekeeper.url2.include?("facebook")%>
+		   <%str2 = "linkedin" if @beekeeper.url2.include?("linkedin")%>
+		   <%str2 = "instagram" if @beekeeper.url2.include?("instagram")%>
+		   <%str2 = "twitter" if @beekeeper.url2.include?("twitter")%>
+		    
+		    <%=link_to str2, @beekeeper.url2, data: { confirm: "Are you sure?" } if @beekeeper.url2? %>
+		 </div> 
+		 <div class="col-lg-4">
+		 
+		   <%str3 = "facebook" if @beekeeper.url3.include?("facebook")%>
+		   <%str3 = "linkedin" if @beekeeper.url3.include?("linkedin")%>
+		   <%str3 = "instagram" if @beekeeper.url3.include?("instagram")%>
+		   <%str3 = "twitter" if @beekeeper.url3.include?("twitter")%>
+		   
+		  
+		  <%=link_to str3, @beekeeper.url3, data: { confirm: "Are you sure?" } if @beekeeper.url3? %>
+		 </div>
+        </div>
+     
+  
+
+		<section class="post-head ">				
+			<small>
+				<%=link_to 'Edit', edit_beekeeper_path(@beekeeper)%>
+				|
+				<%=link_to 'Delete', beekeeper_path(@beekeeper), method: :delete, data:{confirm: 'A You sure?'} %>
+				|
+				<%=link_to  'Back', :back, class: "btn btn-secondary"%></strong>
+			</small>
+		</section>   
+</article>		
+				 

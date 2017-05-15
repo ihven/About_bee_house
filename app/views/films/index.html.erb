@@ -1,0 +1,25 @@
+<%@val = 'Video' %>
+<% @films.each do |film|%>
+ <article class="post">
+		<section class="post-head">	  
+				<strong><%= film.title %></strong><br>			
+				<%= film.text %><br>
+                <%=link_to 'Click for show', film_path(film)%>				
+				 
+		</section>
+	
+ </article>		
+ <%end%><br>
+
+
+<% if  user_signed_in? %>
+ <% if  current_user.admin? %>
+   <div class="actions">  
+	<%=link_to 'Add video', new_film_path, class:"btn btn-primary"%>
+   </div>	
+ <%end%>
+<%end%>	
+
+
+	
+	

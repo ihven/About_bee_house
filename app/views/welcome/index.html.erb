@@ -1,0 +1,37 @@
+<%@val = ""%>
+<div class="row">			   
+       
+	     <div class="col-lg-2" >			           
+			<h5><%= link_to 'About UBB', controller: 'products' %></h5>            			
+		 </div>
+		 <div class="col-lg-2" >			           
+			<h5><%= link_to 'Video', controller: 'films'%></h5>	            			
+		 </div>
+         <div class="col-lg-2" >			           
+			<h5><%= link_to 'Gallery', controller: 'galleries' %></h5>             			
+		 </div>
+         
+		  <div class="col-lg-2">			           
+			<h5><%= link_to 'Specification', controller: 'specifications'%></h5>             			
+		 </div>
+		 
+		 <div class="col-lg-2">			           
+			<h5><%= link_to 'About us', controller: 'beekeepers'%></h5>             			
+		 </div>		
+         
+		 <div class="col-lg-2">			           
+			<h5><%= link_to 'Blog', controller: 'articles'%></h5> 
+         </div>
+	
+</div>	
+
+	 
+        	 <% Gallery.all  %>
+	         <% page = Gallery.find 5 %>
+	         <%= image_tag page.image.url(:large), class:"img-show", style:"width: 100%; hight: 100%" %>
+        	 
+
+
+ 
+
+     	
